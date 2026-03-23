@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
@@ -19,6 +19,29 @@ import Contact from './sections/Contact';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      smoothTouch: false
+    });
+
+    window.__lenis = lenis;
+
+    let rafId;
+    const raf = (time) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+      if (window.__lenis === lenis) window.__lenis = undefined;
+    };
+  }, []);
 
   return (
     <main className="bg-background text-secondary cursor-none overflow-x-hidden">

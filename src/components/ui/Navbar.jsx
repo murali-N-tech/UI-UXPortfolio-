@@ -40,7 +40,8 @@ const Navbar = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/assets/resume_murali.pdf"
+            href="/resume_murali.pdf"
+            download
             className="px-4 py-2 bg-primary/10 border border-primary/50 text-primary rounded-full text-[10px] font-mono hover:bg-primary hover:text-white transition-all whitespace-nowrap"
           >
             EXEC_RESUME

@@ -86,6 +86,43 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
+    id: "school-platform",
+    title: "NewGeneration School",
+    terminalTitle: "SCHOOL-MGT [ v2.4 ]", // Added this
+    commands: ["cd school-portal", "npm run dev", "Database Connected"], // Added this
+    status: "Production Build - Live", // Added this
+    description: "Full-stack MERN application delivered for a real-world client to manage student data.",
+    features: ["React", "Express", "Node.js", "Cloudinary"], // Added this
+    mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774290931/Screenshot_2026-03-23_234903_bkmp0f.png", // Added this
+    github: "https://github.com/murali-N-tech/Newgenration.git",
+    live: "https://newgenerationschool.vercel.app/"
+  },
+  
+  {
+    id: "india-kart",
+    title: "E-Commerce Website (MERN)",
+    terminalTitle: "INDIA-KART [ mern ]",
+    commands: ["cd projects/india-kart", "npm install", "npm run dev"],
+    status: "Live Demo - Vercel",
+    description: "Modern MERN stack e-commerce platform with a clean UI and full shopping flow.",
+    features: ["MongoDB", "Express", "React", "Node", "MERN", "Tailwind"],
+    mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774290931/Screenshot_2026-03-23_235720_oeviwa.png",
+    github: "https://github.com/murali-N-tech/e-commerce.git",
+    live: "https://india-kart.vercel.app/"
+  },
+  {
+    id: "anurag-school",
+    title: "Anurag School Website",
+    terminalTitle: "ANURAG-SCHOOL [ prod ]",
+    commands: ["cd projects/anurag-school", "npm install", "npm run build"],
+    status: "Live Site",
+    description: "A school website built using the MERN stack (MongoDB, Express.js, React, Node.js).",
+    features: ["MERN", "React", "UI/UX", "Responsive"],
+    mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774290919/Screenshot_2026-03-23_235911_srqhqn.png",
+    github: "https://github.com/murali-N-tech/Anurag-school-website.git",
+    live: "https://www.anuragschool.com/"
+  },
+  {
     id: "hire-me-ai",
     title: "HIRE-ME AI",
     terminalTitle: "HIRE-ME-AI [ v1.0 ]",
@@ -93,9 +130,9 @@ export const PROJECTS = [
     status: "Server - Running on port 5000",
     description: "Intelligent resume evaluation and interview system that uses AI to score candidates.",
     features: ["OpenAI API", "MERN Stack", "AWS Deployment"],
-    mockup: "/assets/images/hire-me-mobile.png", // Ensure this image exists
-    github: "https://github.com/your-username/hire-me-ai",
-    live: "#"
+    mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774290918/Screenshot_2026-03-23_235758_ijp7zr.png", // Ensure this image exists
+    github: "https://github.com/murali-N-tech/Hire-Me.git",
+    live: "https://hire-me-phi.vercel.app/"
   },
   {
     id: "ai-aap",
@@ -105,20 +142,21 @@ export const PROJECTS = [
     status: "Core Engine - Optimized",
     description: "A microservices-based AI-driven adaptive learning platform for students.",
     features: ["TensorFlow", "Python", "Microservices"],
-    mockup: "/assets/images/ai-aap-mobile.png",
-    github: "#",
+    mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774291331/Screenshot_20260323_235844_igd0h2.jpg",
+    github: "https://github.com/vijayagiduthuri/AI-AAP.git",
     live: "#"
   },
   {
-    id: "school-platform",
-    title: "NewGeneration School",
-    terminalTitle: "SCHOOL-MGT [ v2.4 ]", // Added this
-    commands: ["cd school-portal", "npm run dev", "Database Connected"], // Added this
-    status: "Production Build - Live", // Added this
-    description: "Full-stack MERN application delivered for a real-world client to manage student data.",
-    features: ["React", "Express", "Node.js", "Cloudinary"], // Added this
-    mockup: "/assets/images/school-mobile.png", // Added this
-    github: "#",
-    live: "https://newgenschool.com"
-  }
+  id: "chennapatnam-coffee",
+  title: "Chennapatnam Filter Coffee",
+  terminalTitle: "CFC-Web [ Traditional Brew ]",
+  commands: ["npm install", "npm run dev", "Brewing Aroma..."],
+  status: "Production - Live",
+  description: "An authentic digital storefront and franchise management platform for a premium South Indian coffee brand.",
+  features: ["React", "Tailwind CSS", "Framer Motion"],
+  mockup: "https://res.cloudinary.com/dkpjimiip/image/upload/v1774290930/Screenshot_2026-03-23_235534_foyunm.png",
+  github: "https://github.com/murali-N-tech/Coffee.git",
+  live: "https://chennapatnamfiltercoffee.vercel.app/"
+}
+  
 ];

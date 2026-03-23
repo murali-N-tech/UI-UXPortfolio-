@@ -111,11 +111,21 @@ const Projects = () => {
                   <a href={cur.github} target="_blank" className="flex items-center gap-2 text-xs text-secondary/40 hover:text-accent transition-colors">
                     <Github size={14} /> git_branch: main
                   </a>
+                  {cur.live && cur.live !== "#" && (
+                    <a
+                      href={cur.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 text-xs text-secondary/40 hover:text-accent transition-colors"
+                    >
+                      <ExternalLink size={14} /> open_live: preview
+                    </a>
+                  )}
                   
                   {/* DOWNLOAD LOGS (RESUME TRIGGER) */}
                   <motion.a 
                     whileHover={{ scale: 1.05 }}
-                    href="/assets/resume_murali.pdf"
+                    href="/resume_murali.pdf"
                     download
                     className="flex items-center gap-2 text-xs text-primary font-bold hover:text-accent transition-colors group cursor-pointer"
                   >
