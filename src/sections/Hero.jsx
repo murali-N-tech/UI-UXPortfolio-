@@ -1,9 +1,26 @@
-import { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { useMemo, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import Hyperspeed from '../Background/Hyperspeed';
+import { FiX } from 'react-icons/fi';
 
 const Hero = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  // NEW: This prevents the background from scrolling when the modal is open
+  useEffect(() => {
+    if (isResumeOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup just in case the component unmounts while modal is open
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isResumeOpen]);
+
   const hyperspeedOptions = useMemo(() => ({
     distortion: 'turbulentDistortion',
     length: 400,
@@ -103,15 +120,14 @@ const Hero = () => {
               View Projects
             </motion.button>
 
-            <motion.a
-              href="/resume_murali.pdf"
-              download
+            <motion.button
+              onClick={() => setIsResumeOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-white/20 text-white rounded-full backdrop-blur hover:bg-white/10 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-white/20 text-white rounded-full backdrop-blur hover:bg-white/10 text-center cursor-pointer"
             >
-              Download Resume
-            </motion.a>
+              View Resume
+            </motion.button>
 
           </div>
 
@@ -157,13 +173,70 @@ const Hero = () => {
       </div>
 
       {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
         <motion.div
           animate={{ y: [0, 15, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
           className="w-[2px] h-12 sm:h-16 bg-gradient-to-b from-accent to-transparent"
         />
       </div>
+
+      {/* RESUME MODAL / FLOATING COMPONENT */}
+      <AnimatePresence>
+        {isResumeOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-8 bg-black/80 backdrop-blur-md"
+          >
+            {/* Clickable background to close */}
+            <div 
+              className="absolute inset-0 cursor-pointer" 
+              onClick={() => setIsResumeOpen(false)} 
+            />
+
+            {/* MOBILE OPTIMIZED BOX */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative w-full max-w-[600px] h-[92vh] sm:h-[90vh] bg-[#323639] border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col z-10"
+            >
+              {/* Modal Header */}
+              <div className="flex justify-between items-center px-3 py-3 sm:px-4 sm:py-3 border-b border-white/10 bg-[#1a1a1a] shrink-0">
+                <h3 className="text-accent font-mono text-[11px] sm:text-sm tracking-widest uppercase truncate">
+                  Resume Preview
+                </h3>
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+                  <a 
+                    href="/resume_murali.pdf" 
+                    download 
+                    className="text-[10px] sm:text-xs font-mono text-secondary/60 hover:text-white transition-colors whitespace-nowrap"
+                  >
+                    [ Download ]
+                  </a>
+                  <button
+                    onClick={() => setIsResumeOpen(false)}
+                    className="text-white/70 hover:text-accent transition-colors p-1"
+                  >
+                    <FiX size={20} className="sm:w-[22px] sm:h-[22px]" />
+                  </button>
+                </div>
+              </div>
+              
+              {/* Modal Body / PDF Viewer */}
+              <div className="flex-1 w-full bg-[#323639] overflow-hidden rounded-b-xl overflow-y-auto -webkit-overflow-scrolling-touch">
+                <iframe
+                  src="/resume_murali.pdf#toolbar=0&navpanes=0&view=FitH"
+                  className="w-full h-full border-none rounded-b-xl"
+                  title="Murali Resume"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </section>
   );
