@@ -37,12 +37,13 @@ const About = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-[#050505] text-white py-20 px-3 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden" id="about">
+    // FIX: Changed bg-[#050505] to bg-transparent so the global Hyperspeed shows through!
+    <section className="min-h-screen bg-transparent text-white py-20 px-3 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden" id="about">
       
-      {/* Subtle Background Elements */}
+      {/* Subtle Background Elements (Kept these because the glows look awesome over the stars) */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:32px_32px]" />
-      <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-1/4 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -199,7 +200,7 @@ const About = () => {
           transition={{ delay: 0.4 }}
           className="mt-12 md:mt-20 text-center border-t border-white/5 pt-8 md:pt-12 relative"
         >
-          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#050505] px-2 md:px-4 text-accent text-lg md:text-2xl">"</span>
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-2 md:px-4 text-accent text-lg md:text-2xl">"</span>
           <p className="text-sm sm:text-lg md:text-2xl font-light tracking-wide text-secondary/80 max-w-2xl mx-auto leading-relaxed italic px-4">
             I just want to keep building things that are useful, meaningful, and a little better than what I made yesterday.
           </p>

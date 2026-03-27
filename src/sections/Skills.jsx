@@ -25,7 +25,6 @@ const AnalogClock = () => {
   const hourDeg = hours * 30;
 
   return (
-    // Scaled down drastically for mobile (w-36 h-36), normal on desktop (w-72 h-72)
     <div className="relative w-36 h-36 sm:w-56 sm:h-56 md:w-72 md:h-72 flex items-center justify-center [--clock-radius:65px] sm:[--clock-radius:110px] md:[--clock-radius:140px]">
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400/10 to-purple-500/10 blur-xl" />
       <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0f172a] to-[#020617] shadow-[inset_0_0_30px_rgba(255,255,255,0.05),0_0_40px_rgba(34,211,238,0.15)] border border-white/10 flex items-center justify-center">
@@ -46,7 +45,7 @@ const AnalogClock = () => {
           );
         })}
         
-        {/* Hands scaled down for mobile */}
+        {/* Hands */}
         <div className="absolute w-[2px] sm:w-[4px] h-[35px] sm:h-[60px] md:h-[72px] bg-white rounded-full origin-bottom z-30" style={{ transform: `rotate(${hourDeg}deg)`, bottom: "50%" }} />
         <div className="absolute w-[1.5px] sm:w-[2.5px] h-[50px] sm:h-[85px] md:h-[104px] bg-cyan-400 rounded-full origin-bottom z-20" style={{ transform: `rotate(${minDeg}deg)`, bottom: "50%" }} />
         <div className="absolute w-[1px] sm:w-[1.5px] h-[60px] sm:h-[100px] md:h-[124px] bg-red-500 rounded-full origin-bottom z-40" style={{ transform: `rotate(${secDeg}deg)`, bottom: "50%" }} />
@@ -61,7 +60,7 @@ const AnalogClock = () => {
 };
 
 /* ===============================
-   🔹 SKILL NODE CARD (MINIATURIZED)
+   🔹 SKILL NODE CARD
 ================================ */
 const SkillNode = ({ id, title, skills }) => (
   <motion.div
@@ -98,7 +97,10 @@ export default function Skills() {
   }, [isResumeOpen]);
 
   return (
-    <section className="min-h-screen bg-[#020617] text-white py-12 sm:py-16 px-3 sm:px-6 relative overflow-hidden flex flex-col justify-center" id="skills">
+    // FIX: Changed bg-[#020617] to bg-transparent so the global Hyperspeed shows through!
+    <section className="min-h-screen bg-transparent text-white py-12 sm:py-16 px-3 sm:px-6 relative overflow-hidden flex flex-col justify-center" id="skills">
+      
+      {/* Subtle Grid overlay - kept this as it looks cool over the stars */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
       <div className="max-w-6xl mx-auto w-full flex flex-col items-center relative z-10">
@@ -114,20 +116,17 @@ export default function Skills() {
         {/* HUD LAYOUT GRID */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-20">
           
-          {/* TOP ROW (Mobile) / LEFT COL (Desktop) */}
           <div className="w-full flex flex-row md:flex-col justify-between md:justify-end gap-2 md:gap-8 items-center md:items-end">
             <SkillNode id="A" title="Frontend_Core" skills={["React", "Next.js", "Tailwind"]} />
             <SkillNode id="B" title="Backend_Exec" skills={["Node.js", "Express", "REST"]} />
           </div>
 
-          {/* CENTER CLOCK */}
           <div className="flex flex-col items-center shrink-0 my-2 md:my-0">
             <p className="font-mono text-[7px] sm:text-[10px] text-white/40 mb-2 sm:mb-3 tracking-widest">MURALI_TIME_ENGINE</p>
             <AnalogClock />
             <div className="mt-3 sm:mt-4 font-mono text-[8px] sm:text-xs text-cyan-400 border border-cyan-400/20 px-2 sm:px-3 py-1 rounded-full">STATUS: RUNNING</div>
           </div>
 
-          {/* BOTTOM ROW (Mobile) / RIGHT COL (Desktop) */}
           <div className="w-full flex flex-row md:flex-col justify-between md:justify-start gap-2 md:gap-8 items-center md:items-start">
             <SkillNode id="C" title="AI_Intelligence" skills={["Python", "ML", "NLP"]} />
             <SkillNode id="D" title="Data_Infra" skills={["MongoDB", "Docker", "AWS"]} />

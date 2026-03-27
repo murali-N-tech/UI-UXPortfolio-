@@ -1,7 +1,6 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import Hyperspeed from '../Background/Hyperspeed';
 import { FiX, FiExternalLink } from 'react-icons/fi';
 
 const Hero = () => {
@@ -18,29 +17,6 @@ const Hero = () => {
     };
   }, [isResumeOpen]);
 
-  const hyperspeedOptions = useMemo(() => ({
-    distortion: 'turbulentDistortion',
-    length: 400,
-    roadWidth: 10,
-    islandWidth: 2,
-    lanesPerRoad: 3,
-    fov: 90,
-    speedUp: 2,
-    carLightsFade: 0.4,
-    totalSideLightSticks: 20,
-    lightPairsPerRoadWay: 40,
-    colors: {
-      roadColor: 0x080808,
-      islandColor: 0x0a0a0a,
-      background: 0x000000,
-      shoulderLines: 0x131318,
-      brokenLines: 0x131318,
-      leftCars: [0x6366F1, 0xA78BFA, 0x6366F1],
-      rightCars: [0x22D3EE, 0x0e5ea5, 0x22D3EE],
-      sticks: 0x22D3EE
-    }
-  }), []);
-
   const scrollToProjects = () => {
     const target = document.getElementById('projects');
     if (!target) return;
@@ -53,14 +29,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-24 md:py-0">
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 z-0 opacity-70">
-        <Hyperspeed effectOptions={hyperspeedOptions} />
-      </div>
+    <section className="relative min-h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden py-24 md:py-0">
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black z-[1]" />
+      {/* OVERLAY - Subtle fade so the global Hyperspeed background shows through clearly */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent z-[1] pointer-events-none" />
 
       {/* MAIN GRID - Forced 2 columns even on mobile (grid-cols-2) */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-2 sm:px-6 grid grid-cols-2 gap-2 sm:gap-10 items-center mt-8 sm:mt-0">
@@ -152,6 +124,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      {/* SCROLL INDICATOR */}
       <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
         <motion.div
           animate={{ y: [0, 15, 0] }}
