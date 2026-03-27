@@ -66,6 +66,9 @@ const LoadingScreen = ({ onComplete }) => {
           </div>
         </div>
 
+        {/* Loader */}
+        <span className="loader" aria-hidden="true" />
+
         {/* Logs */}
         <div className="h-6">
           <AnimatePresence mode="wait">

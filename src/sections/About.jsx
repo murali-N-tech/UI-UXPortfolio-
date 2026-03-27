@@ -19,7 +19,7 @@ const About = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-background text-white py-20 px-6 md:px-20 relative overflow-hidden" id="about">
+    <section className="min-h-screen bg-background text-white py-16 sm:py-20 px-4 sm:px-6 md:px-20 relative overflow-hidden" id="about">
       
       {/* Background Grid */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:40px_40px]" />
@@ -138,7 +138,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="w-full max-w-[420px] mx-auto aspect-square">
+              <div className="w-full max-w-[360px] sm:max-w-[420px] mx-auto aspect-square">
                 <Stack
                   randomRotation={false}
                   sensitivity={200}

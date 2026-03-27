@@ -41,91 +41,127 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-black py-24 md:py-0">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 opacity-70">
         <Hyperspeed effectOptions={hyperspeedOptions} />
       </div>
 
-      {/* DARK OVERLAY */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black z-[1]" />
 
-      {/* MAIN CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 text-center px-6 max-w-4xl"
-      >
+      {/* MAIN GRID */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
 
-        {/* STATUS BADGE */}
-        <div className="mb-6 inline-block px-4 py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur text-accent text-xs font-mono tracking-widest">
-          OPEN TO WORK
-        </div>
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center md:text-left"
+        >
 
-        {/* NAME */}
-        <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-tight">
-          Murali
-        </h1>
+          {/* BADGE */}
+          <div className="mb-6 inline-block px-4 py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur text-accent text-xs font-mono tracking-widest">
+            OPEN TO WORK
+          </div>
 
-        {/* SUB HEADING */}
-        <h2 className="mt-4 text-lg md:text-2xl text-secondary/80 font-light">
-          I build things that combine <span className="text-accent">code</span>,
-          <span className="text-accent"> intelligence</span>, and
-          <span className="text-accent"> design</span>.
-        </h2>
+          {/* NAME */}
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
+            Murali
+          </h1>
 
-        {/* TYPE ANIMATION */}
-        <div className="mt-6 text-base md:text-xl text-secondary/70 h-10 font-mono">
-          <TypeAnimation
-            sequence={[
-              'MERN Stack Developer', 1500,
-              'Machine Learning Builder', 1500,
-              'Creating Real World Projects', 1500
-            ]}
-            repeat={Infinity}
-          />
-        </div>
+          {/* SUBTEXT */}
+          <h2 className="mt-4 text-lg md:text-xl text-secondary/80 font-light">
+            I build things that combine <span className="text-accent">code</span>,
+            <span className="text-accent"> intelligence</span>, and
+            <span className="text-accent"> design</span>.
+          </h2>
 
-        {/* CTA BUTTONS */}
-        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          {/* TYPE ANIMATION */}
+          <div className="mt-6 text-base md:text-lg text-secondary/70 h-10 font-mono">
+            <TypeAnimation
+              sequence={[
+                'MERN Stack Developer', 1500,
+                'Machine Learning Builder', 1500,
+                'Creating Real World Projects', 1500
+              ]}
+              repeat={Infinity}
+            />
+          </div>
 
-          <motion.button
-            type="button"
-            onClick={scrollToProjects}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-accent text-black font-semibold rounded-full shadow-[0_0_20px_#22D3EE] transition"
-          >
-            View Projects
-          </motion.button>
+          {/* BUTTONS */}
+          <div className="mt-10 flex flex-col sm:flex-row md:flex-row gap-4 md:justify-start justify-center">
 
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="/resume_murali.pdf"
-            download
-            className="px-8 py-3 border border-white/20 text-white rounded-full backdrop-blur hover:bg-white/10 transition inline-flex items-center justify-center"
-          >
-            Download Resume
-          </motion.a>
+            <motion.button
+              onClick={scrollToProjects}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-accent text-black font-semibold rounded-full shadow-[0_0_20px_#22D3EE]"
+            >
+              View Projects
+            </motion.button>
 
-        </div>
+            <motion.a
+              href="/resume_murali.pdf"
+              download
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-white/20 text-white rounded-full backdrop-blur hover:bg-white/10 text-center"
+            >
+              Download Resume
+            </motion.a>
 
-        {/* SMALL PERSONAL TOUCH */}
-        <p className="mt-8 text-xs text-secondary/40 font-mono">
-          Based in India • Always Learning • Building Daily
-        </p>
+          </div>
 
-      </motion.div>
+          {/* FOOT TEXT */}
+          <p className="mt-8 text-xs text-secondary/40 font-mono">
+            Based in India • Always Learning • Building Daily
+          </p>
+
+        </motion.div>
+
+        {/* RIGHT PROFILE */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex justify-center md:justify-end"
+        >
+          <div className="relative group">
+
+            {/* GLOW */}
+            <div className="absolute inset-0 rounded-full blur-2xl opacity-60 bg-gradient-to-r from-primary via-accent to-primary animate-pulse" />
+
+            {/* IMAGE */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/10 backdrop-blur-xl bg-white/5 shadow-[0_0_40px_rgba(34,211,238,0.3)]"
+            >
+              <img
+                src="https://res.cloudinary.com/dkpjimiip/image/upload/v1774292342/lv_0_20260309225650_qun5wv.jpg"
+                alt="Murali"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            {/* FLOAT BADGE */}
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-black/60 backdrop-blur border border-white/10 rounded-full text-[10px] font-mono text-accent tracking-widest">
+              MERN + ML
+            </div>
+
+          </div>
+        </motion.div>
+
+      </div>
 
       {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10">
         <motion.div
           animate={{ y: [0, 15, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-[2px] h-16 bg-gradient-to-b from-accent to-transparent"
+          className="w-[2px] h-12 sm:h-16 bg-gradient-to-b from-accent to-transparent"
         />
       </div>
 

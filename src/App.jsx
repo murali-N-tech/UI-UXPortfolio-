@@ -44,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-background text-secondary cursor-none overflow-x-hidden">
+    <main className="bg-background text-secondary cursor-auto md:cursor-none overflow-x-hidden">
       <CustomCursor />
       
       <AnimatePresence mode="wait">
