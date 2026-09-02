@@ -4,6 +4,7 @@ import Lenis from '@studio-freight/lenis';
 
 // Components
 import Navbar from './components/ui/Navbar';
+import MobileBottomNav from './components/ui/MobileBottomNav';
 import CustomCursor from './components/ui/CustomCursor';
 import LoadingScreen from './components/ui/LoadingScreen';
 import Hyperspeed from './Background/Hyperspeed'; // ADDED HYPERSPEED IMPORT
@@ -81,12 +82,13 @@ function App() {
         ) : (
           <motion.div key="content" className="relative z-10">
             <Navbar />
+            <MobileBottomNav />
             
             {/* Sections */}
             <Hero />
             
             {/* Removed solid bg-background so the global background shows through */}
-            <div className="relative">
+            <div className="relative pb-28 md:pb-0">
                <About />
                <Skills />
                <Projects />

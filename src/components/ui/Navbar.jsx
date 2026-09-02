@@ -23,7 +23,7 @@ const Navbar = () => {
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="fixed top-6 inset-x-0 z-[100] w-[95%] max-w-4xl mx-auto"
+        className="hidden md:block fixed top-6 inset-x-0 z-[100] w-[95%] max-w-4xl mx-auto"
       >
         <div className="glass px-5 py-3 rounded-full flex items-center justify-between border border-white/10 shadow-2xl">
           

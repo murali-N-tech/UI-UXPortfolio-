@@ -45,7 +45,7 @@ const TechStack = () => {
           className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6"
         >
           {/* Header Card (Spans 8 cols) */}
-          <motion.div variants={item} className="md:col-span-8 glass bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+          <motion.div variants={item} className="md:col-span-8 glass mobile-edge p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 {/* Kept the green ping for the universal "Online/Optimized" look from your original code */}
@@ -67,7 +67,7 @@ const TechStack = () => {
           {/* Metrics Grid (Spans 4 cols) */}
           <motion.div variants={item} className="md:col-span-4 grid grid-cols-2 gap-4 sm:gap-6">
             {metrics.map((metric, i) => (
-              <div key={i} className="glass bg-white/5 border border-white/10 rounded-3xl p-4 flex flex-col justify-center items-center text-center hover:bg-white/10 transition-colors">
+              <div key={i} className="glass mobile-edge p-4 flex flex-col justify-center items-center text-center hover:bg-white/[0.05] transition-colors">
                 <span className="text-secondary/50 text-[10px] uppercase tracking-widest mb-1">{metric.label}</span>
                 <span className="text-white font-medium text-sm sm:text-base">{metric.value}</span>
               </div>
@@ -80,7 +80,7 @@ const TechStack = () => {
               key={skill.label} 
               variants={item}
               whileHover={{ y: -5 }}
-              className="md:col-span-3 glass bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group"
+              className="md:col-span-3 glass mobile-edge p-5 sm:p-6 relative overflow-hidden group"
             >
               <div className="flex justify-between items-start mb-8">
                 <div className={`w-10 h-10 rounded-xl ${skill.bg} flex items-center justify-center text-lg border border-white/5`}>

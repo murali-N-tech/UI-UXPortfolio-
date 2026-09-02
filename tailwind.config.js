@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#0B0F19",
-        primary: "#6366F1", // Indigo
-        accent: "#22D3EE",  // Cyan
-        highlight: "#A78BFA", // Purple
-        secondary: "#E5E7EB", // Text
+        background: "#0F172A",
+        primary: "#3B82F6",
+        accent: "#F59E0B",
+        highlight: "#10B981",
+        secondary: "#F8FAFC",
       },
       animation: {
         'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',

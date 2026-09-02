@@ -37,13 +37,11 @@ const About = () => {
   ];
 
   return (
-    // FIX: Changed bg-[#050505] to bg-transparent so the global Hyperspeed shows through!
-    <section className="min-h-screen bg-transparent text-white py-20 px-3 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden" id="about">
+    // FIX: Changed padding for edge-to-edge mobile cards
+    <section className="min-h-screen bg-transparent text-white py-20 px-0 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden" id="about">
       
-      {/* Subtle Background Elements (Kept these because the glows look awesome over the stars) */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:32px_32px]" />
-      <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:32px_32px]" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -52,39 +50,39 @@ const About = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="mb-8 md:mb-12 border-l-2 border-accent pl-4 md:pl-6"
+          className="mb-8 md:mb-12 border-l-2 border-primary pl-4 md:pl-6 ml-4 sm:ml-0"
         >
-          <h2 className="text-[10px] md:text-xs font-mono text-accent tracking-[0.4em] uppercase mb-2 md:mb-3">
+          <h2 className="text-[10px] md:text-xs font-mono text-primary tracking-[0.4em] uppercase mb-2 md:mb-3">
             About_Me
           </h2>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase italic text-white/90">
-            Who <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">I Am</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white/90">
+            Who <span className="text-primary">I Am</span>
           </h1>
         </motion.div>
 
-        {/* BENTO GRID - Forced 12 cols on mobile */}
+        {/* BENTO GRID */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-12 gap-3 md:gap-6"
+          className="grid grid-cols-1 md:grid-cols-12 gap-1 sm:gap-6"
         >
           
-          {/* CARD 1: MAIN BIO (Spans 7 columns everywhere) */}
-          <motion.div variants={itemVariants} className="glass col-span-7 p-4 sm:p-6 md:p-10 rounded-2xl md:rounded-3xl flex flex-col justify-between group hover:border-white/10 transition-colors">
+          {/* CARD 1: MAIN BIO */}
+          <motion.div variants={itemVariants} className="glass mobile-edge col-span-1 md:col-span-7 p-6 md:p-10 flex flex-col justify-between group hover:border-white/[0.15] transition-colors">
             <div>
               <div className="flex flex-wrap gap-1.5 md:gap-3 mb-4 md:mb-8">
                 <span className="inline-flex items-center gap-1 md:gap-2 px-2 py-1 md:px-3 md:py-1 rounded-full bg-white/5 border border-white/10 text-[6px] md:text-[10px] font-mono text-secondary/70">
-                  <FiBookOpen className="text-accent text-[8px] md:text-base" /> B.Tech AI & DS
+                  <FiBookOpen className="text-primary text-[8px] md:text-base" /> B.Tech AI & DS
                 </span>
                 <span className="inline-flex items-center gap-1 md:gap-2 px-2 py-1 md:px-3 md:py-1 rounded-full bg-white/5 border border-white/10 text-[6px] md:text-[10px] font-mono text-secondary/70">
-                  <FiMapPin className="text-accent text-[8px] md:text-base" /> Bhimavaram
+                  <FiMapPin className="text-primary text-[8px] md:text-base" /> Bhimavaram
                 </span>
               </div>
 
-              <h3 className="text-[10px] sm:text-lg md:text-2xl font-light text-white/90 leading-snug mb-3 md:mb-6">
-                I’m a developer who genuinely enjoys building things — mixing <span className="text-accent font-medium">logic</span>, <span className="text-accent font-medium">creativity</span>, and <span className="text-accent font-medium">real-world impact</span>.
+              <h3 className="text-[12px] sm:text-lg md:text-2xl font-light text-white/90 leading-snug mb-3 md:mb-6">
+                I’m a developer who genuinely enjoys building things — mixing <span className="text-primary font-medium">logic</span>, <span className="text-primary font-medium">creativity</span>, and <span className="text-primary font-medium">real-world impact</span>.
               </h3>
 
               <div className="space-y-2 md:space-y-4 text-[7px] sm:text-xs md:text-sm text-secondary/60 leading-relaxed font-mono">
@@ -114,8 +112,8 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* CARD 2: FOCUS AREAS (Spans 5 columns everywhere) */}
-          <motion.div variants={itemVariants} className="glass col-span-5 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl flex flex-col justify-center">
+          {/* CARD 2: FOCUS AREAS */}
+          <motion.div variants={itemVariants} className="glass mobile-edge col-span-1 md:col-span-5 p-6 md:p-8 flex flex-col justify-center">
             <h4 className="text-[7px] md:text-xs font-mono text-secondary/40 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-8">
               Core Focus
             </h4>
@@ -134,9 +132,9 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* CARD 3: TECH STACK (Spans 6 columns everywhere) */}
-          <motion.div variants={itemVariants} className="glass col-span-6 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl">
-            <h4 className="flex items-center gap-1.5 md:gap-2 text-accent font-mono text-[7px] md:text-xs uppercase tracking-widest mb-3 md:mb-6">
+          {/* CARD 3: TECH STACK */}
+          <motion.div variants={itemVariants} className="glass mobile-edge col-span-1 md:col-span-6 p-6 md:p-8">
+            <h4 className="flex items-center gap-1.5 md:gap-2 text-primary font-mono text-[7px] md:text-xs uppercase tracking-widest mb-3 md:mb-6">
               <FiTarget className="text-[8px] md:text-sm" /> Tech Stack
             </h4>
             <div className="flex flex-wrap gap-1.5 md:gap-3">
@@ -151,13 +149,13 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* CARD 4: VISUAL WORK (Spans 6 columns everywhere) */}
-          <motion.div variants={itemVariants} className="glass col-span-6 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl flex flex-row items-center justify-between gap-2 md:gap-8 overflow-hidden">
+          {/* CARD 4: VISUAL WORK */}
+          <motion.div variants={itemVariants} className="glass mobile-edge col-span-1 md:col-span-6 p-6 md:p-8 flex flex-row items-center justify-between gap-4 md:gap-8 overflow-hidden">
             <div className="flex-1">
-              <h4 className="text-accent font-mono text-[7px] md:text-xs uppercase tracking-widest mb-1 md:mb-2">
+              <h4 className="text-primary font-mono text-[7px] md:text-xs uppercase tracking-widest mb-1 md:mb-2">
                 My_Work
               </h4>
-              <p className="text-[6px] md:text-[10px] text-secondary/50 font-mono leading-relaxed max-w-[100px] md:max-w-[200px]">
+              <p className="text-[8px] md:text-[10px] text-secondary/50 font-mono leading-relaxed max-w-[100px] md:max-w-[200px]">
                 A glimpse into the interfaces I've built. (Drag)
               </p>
             </div>
@@ -208,14 +206,6 @@ const About = () => {
 
       </div>
 
-      <style>{`
-        .glass { 
-          background: rgba(255, 255, 255, 0.02); 
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </section>
   );
 };

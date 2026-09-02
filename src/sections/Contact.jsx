@@ -44,11 +44,11 @@ const Contact = () => {
           viewport={{ once: true }}
           className="mb-8 md:mb-16 border-l-2 border-cyan-400 pl-4 md:pl-6"
         >
-          <h2 className="text-[10px] md:text-xs font-mono text-cyan-400 tracking-[0.4em] uppercase mb-2 md:mb-3">
-            Connection_Protocol
+          <h2 className="text-[10px] md:text-xs font-mono text-primary tracking-[0.4em] uppercase mb-2 md:mb-3">
+            Let's Connect
           </h2>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black italic uppercase text-white/90">
-            Initiate <span className="text-cyan-400">Contact</span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white/90">
+            Get in <span className="text-primary">Touch</span>
           </h1>
         </motion.div>
 
@@ -61,7 +61,7 @@ const Contact = () => {
           className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6"
         >
           {/* LEFT: TERMINAL STATUS MSG (Spans 7 cols on desktop) */}
-          <motion.div variants={itemVariants} className="glass md:col-span-7 p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden group">
+          <motion.div variants={itemVariants} className="glass mobile-edge md:col-span-7 p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             
             <div>
@@ -97,7 +97,7 @@ const Contact = () => {
             {/* Email Button */}
             <a 
               href="mailto:muralinaga826@gmail.com" 
-              className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all group flex items-center justify-between"
+              className="glass mobile-edge p-5 sm:p-6 hover:border-primary/50 hover:bg-primary/5 transition-all group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
@@ -115,7 +115,7 @@ const Contact = () => {
             <a 
               href="https://www.linkedin.com/in/chinthada-murali-nagaraju-0746912b9/" 
               target="_blank" rel="noreferrer"
-              className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group flex items-center justify-between"
+              className="glass mobile-edge p-5 sm:p-6 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
@@ -133,7 +133,7 @@ const Contact = () => {
             <a 
               href="https://github.com/murali-N-tech" 
               target="_blank" rel="noreferrer"
-              className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-white/50 hover:bg-white/5 transition-all group flex items-center justify-between"
+              className="glass mobile-edge p-5 sm:p-6 hover:border-white/50 hover:bg-white/5 transition-all group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
@@ -235,12 +235,6 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
-      <style>{`
-        .glass {
-          background: rgba(255, 255, 255, 0.02);
-          backdrop-filter: blur(10px);
-        }
-      `}</style>
     </section>
   );
 };

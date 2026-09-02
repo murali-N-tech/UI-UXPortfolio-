@@ -28,8 +28,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-12 sm:py-20 px-2 sm:px-6 min-h-screen flex flex-col justify-center relative overflow-hidden">
       
-      {/* FORCED 2-COLUMN GRID ON MOBILE */}
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-2 gap-3 sm:gap-10 lg:gap-12 items-center">
+      {/* GRID FORCED TO 1 COL ON MOBILE */}
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-12 items-center">
         
         {/* LEFT: MOBILE MOCKUP - Locked to exact same height as terminal */}
         <div className="relative flex justify-center items-center h-[300px] sm:h-[580px] w-full">
@@ -66,7 +66,7 @@ const Projects = () => {
         {/* RIGHT: TERMINAL WINDOW - Locked to exact same height as mockup */}
         <div className="flex flex-col h-[300px] sm:h-[580px] w-full">
           
-          <div className="glass rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-2xl font-mono relative h-full flex flex-col">
+          <div className="glass mobile-edge overflow-hidden font-mono relative h-full flex flex-col">
             
             <div className="bg-white/5 px-2 sm:px-4 py-1.5 sm:py-3 flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex gap-1 sm:gap-2">
@@ -218,12 +218,6 @@ const Projects = () => {
         )}
       </AnimatePresence>
 
-      <style>{`
-        .glass {
-          background: rgba(255, 255, 255, 0.02);
-          backdrop-filter: blur(10px);
-        }
-      `}</style>
     </section>
   );
 };

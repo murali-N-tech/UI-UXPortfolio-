@@ -34,64 +34,65 @@ const Hero = () => {
       {/* OVERLAY - Subtle fade so the global Hyperspeed background shows through clearly */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent z-[1] pointer-events-none" />
 
-      {/* MAIN GRID - Forced 2 columns even on mobile (grid-cols-2) */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-2 sm:px-6 grid grid-cols-2 gap-2 sm:gap-10 items-center mt-8 sm:mt-0">
+      {/* MAIN GRID - Stacked on mobile, 2 columns on desktop */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-12 md:mt-0">
         
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-left"
+          className="text-left flex flex-col items-center md:items-start order-2 md:order-1"
         >
           {/* BADGE */}
-          <div className="mb-2 sm:mb-6 inline-block px-2 py-0.5 sm:px-4 sm:py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur text-accent text-[8px] sm:text-xs font-mono tracking-widest whitespace-nowrap">
+          <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur text-primary text-[10px] sm:text-xs font-mono tracking-widest whitespace-nowrap">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             OPEN TO WORK
           </div>
           
-          <h1 className="text-2xl sm:text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
-            Murali
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter text-white leading-[1.1] text-center md:text-left">
+            Murali<span className="text-primary">.</span>
           </h1>
           
-          <h2 className="mt-1 sm:mt-4 text-[9px] sm:text-lg md:text-xl text-secondary/80 font-light leading-snug max-w-[150px] sm:max-w-none">
-            I build things that combine <span className="text-accent">code</span>,
-            <span className="text-accent"> intelligence</span>, and
-            <span className="text-accent"> design</span>.
+          <h2 className="mt-4 text-sm sm:text-lg md:text-xl text-secondary/90 font-light leading-relaxed text-center md:text-left max-w-lg">
+            I engineer reliable solutions combining <span className="text-primary font-medium">software development</span>,
+            <span className="text-primary font-medium"> machine learning</span>, and
+            <span className="text-primary font-medium"> user-centered design</span>.
           </h2>
           
-          <div className="mt-2 sm:mt-6 text-[8px] sm:text-base md:text-lg text-secondary/70 h-6 sm:h-10 font-mono">
+          <div className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-primary/80 h-6 sm:h-10 font-mono text-center md:text-left">
             <TypeAnimation
               sequence={[
-                'MERN Stack Developer', 1500,
-                'Machine Learning Builder', 1500,
-                'Creating Real World Projects', 1500
+                '> MERN Stack Developer', 1500,
+                '> Machine Learning Builder', 1500,
+                '> Creating Real World Projects', 1500
               ]}
               repeat={Infinity}
             />
           </div>
           
           {/* BUTTONS */}
-          <div className="mt-3 sm:mt-10 flex flex-col sm:flex-row gap-2 sm:gap-4 md:justify-start">
-            <motion.button
-              onClick={scrollToProjects}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 sm:px-8 sm:py-3 bg-accent text-black font-semibold rounded-full shadow-[0_0_10px_#22D3EE] sm:shadow-[0_0_20px_#22D3EE] text-[8px] sm:text-base"
-            >
-              View Projects
-            </motion.button>
+          <div className="mt-8 sm:mt-10 flex flex-row gap-4 justify-center md:justify-start w-full">
             <motion.button
               onClick={() => setIsResumeOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-3 py-1.5 sm:px-8 sm:py-3 border border-white/20 text-white rounded-full backdrop-blur hover:bg-white/10 text-center cursor-pointer text-[8px] sm:text-base"
+              className="px-6 py-3 bg-primary text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all text-sm sm:text-base cursor-pointer"
             >
               View Resume
             </motion.button>
+            <motion.button
+              onClick={scrollToProjects}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 border border-white/20 text-white rounded-full backdrop-blur-md hover:bg-white/5 transition-all text-sm sm:text-base cursor-pointer"
+            >
+              View Projects
+            </motion.button>
           </div>
           
-          <p className="mt-4 sm:mt-8 text-[6px] sm:text-xs text-secondary/40 font-mono">
-            Based in India • Always Learning • Building Daily
+          <p className="mt-8 sm:mt-12 text-[10px] sm:text-xs text-secondary/40 font-mono tracking-widest uppercase">
+            Based in India • Building Daily
           </p>
         </motion.div>
 
@@ -100,15 +101,13 @@ const Hero = () => {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="flex justify-center md:justify-end"
+          className="flex justify-center md:justify-end order-1 md:order-2"
         >
           <div className="relative group">
-            <div className="absolute inset-0 rounded-full blur-xl sm:blur-2xl opacity-60 bg-gradient-to-r from-primary via-accent to-primary animate-pulse" />
-            
-            {/* IMAGE CONTAINER - Drastically shrunk for mobile */}
+            {/* IMAGE CONTAINER */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative w-32 h-32 sm:w-60 sm:h-60 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/10 backdrop-blur-xl bg-white/5 shadow-[0_0_20px_rgba(34,211,238,0.3)] sm:shadow-[0_0_40px_rgba(34,211,238,0.3)]"
+              whileHover={{ scale: 1.02 }}
+              className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-white/10 shadow-2xl bg-[#0F172A]"
             >
               <img
                 src="https://res.cloudinary.com/dkpjimiip/image/upload/v1774292342/lv_0_20260309225650_qun5wv.jpg"
@@ -117,7 +116,7 @@ const Hero = () => {
               />
             </motion.div>
             
-            <div className="absolute -bottom-2 sm:-bottom-4 left-1/2 -translate-x-1/2 px-2 py-0.5 sm:px-4 sm:py-1 bg-black/60 backdrop-blur border border-white/10 rounded-full text-[6px] sm:text-[10px] font-mono text-accent tracking-widest whitespace-nowrap">
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-[#0F172A]/95 backdrop-blur-md border border-white/10 rounded-full text-xs font-mono text-accent tracking-widest whitespace-nowrap shadow-lg">
               MERN + ML
             </div>
           </div>

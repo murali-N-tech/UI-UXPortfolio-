@@ -15,6 +15,12 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
 ::-webkit-scrollbar-track {
   background: #0B0F19;
 }
@@ -23,9 +29,19 @@ body {
   border-radius: 10px;
 }
 
-/* Glassmorphism Utility */
+/* Executive Trust Professional Utilities */
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.05] shadow-lg rounded-xl md:rounded-2xl;
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-nav {
+  @apply bg-[#0F172A]/95 backdrop-blur-xl border-t border-white/[0.05] shadow-[0_-4px_20px_rgba(0,0,0,0.2)];
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-edge {
+  @apply -mx-2 sm:mx-0 rounded-none border-x-0 md:rounded-2xl md:border-x;
 }
 
 /* Smooth Scroll (Lenis Requirement) */
