@@ -96,7 +96,7 @@ const Contact = () => {
             
             {/* Email Button */}
             <a 
-              href="mailto:your-email@example.com" 
+              href="mailto:muralinaga826@gmail.com" 
               className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-cyan-400/50 hover:bg-cyan-400/5 transition-all group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
@@ -113,7 +113,7 @@ const Contact = () => {
 
             {/* LinkedIn Button */}
             <a 
-              href="https://linkedin.com/in/murali" 
+              href="https://www.linkedin.com/in/chinthada-murali-nagaraju-0746912b9/" 
               target="_blank" rel="noreferrer"
               className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all group flex items-center justify-between"
             >
@@ -131,7 +131,7 @@ const Contact = () => {
 
             {/* GitHub Button */}
             <a 
-              href="https://github.com/your-github" 
+              href="https://github.com/murali-N-tech" 
               target="_blank" rel="noreferrer"
               className="glass p-5 sm:p-6 rounded-2xl md:rounded-3xl border border-white/10 hover:border-white/50 hover:bg-white/5 transition-all group flex items-center justify-between"
             >
@@ -152,9 +152,9 @@ const Contact = () => {
 
         {/* FOOTER */}
         <div className="mt-16 sm:mt-24 pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-secondary/40 font-mono text-[8px] sm:text-xs gap-4 sm:gap-6">
-          <p>© 2026 MURALI.SYS // ALL SYSTEMS OPERATIONAL</p>
+          <p>© 2026 MURALI Naga Raju </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
-            <a href="https://github.com/your-github" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">GITHUB</a>
+            <a href="https://github.com/murali-N-tech" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">GITHUB</a>
             
             {/* MODIFIED: Resume button triggers modal instead of linking */}
             <button onClick={() => setIsResumeOpen(true)} className="hover:text-cyan-400 transition-colors cursor-pointer uppercase">
